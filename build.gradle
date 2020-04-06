@@ -21,7 +21,7 @@ apply plugin: 'kotlin'
 apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'application'
 
-mainClassName = 'Main.kt'
+mainClassName = 'io.ktor.server.netty.EngineMain'
 
 sourceCompatibility = 1.8
 
@@ -38,14 +38,14 @@ dependencies {
 }
 
 compileKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = sourceCompatibility
 }
 compileTestKotlin {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = sourceCompatibility
 }
 
-shadowJar{
-    manifest{
-        attributes 'Main-Class' : mainClassName
+shadowJar {
+    manifest {
+        attributes 'Main-Class': mainClassName
     }
 }

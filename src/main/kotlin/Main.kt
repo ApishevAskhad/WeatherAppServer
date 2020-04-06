@@ -1,17 +1,15 @@
-import io.ktor.application.call
-import io.ktor.http.ContentType
-import io.ktor.response.respondText
-import io.ktor.routing.get
-import io.ktor.routing.routing
-import io.ktor.server.engine.embeddedServer
-import io.ktor.server.netty.Netty
+import io.ktor.application.*
+import io.ktor.features.*
+import io.ktor.http.*
+import io.ktor.response.*
+import io.ktor.routing.*
 
-fun main(args: Array<String>) {
-    embeddedServer(Netty, 8080) {
-        routing {
-            get("/") {
-                call.respondText("e2-e4", ContentType.Text.Html)
-            }
+fun Application.main() {
+    install(DefaultHeaders)
+    install(CallLogging)
+    install(Routing) {
+        get("/") {
+            call.respondText("e2-e4", ContentType.Text.Html)
         }
-    }.start(wait = true)
+    }
 }

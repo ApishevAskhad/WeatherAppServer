@@ -1,0 +1,1 @@
+web: java -jar build/libs/WeatherApp-1.0-SNAPSHOT-all.jar
