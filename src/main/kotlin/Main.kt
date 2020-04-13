@@ -47,8 +47,8 @@ fun Application.main() {
         gson()
     }
     install(Routing) {
-        get("/{city}") {
-            val city = call.parameters["city"]
+        get("/city") {
+            val city = call.parameters["name"]
             val apiKey = application.environment.config
                 .property("ktor.api.key")?.getString()
             if (city != null) {
